@@ -16,7 +16,7 @@ interface Props {
 
 export const Business: React.FunctionComponent<Props> = ({ business }: Props) => {
   const { balance } = React.useContext(BalanceContext);
-  const [timer, setTimer] = React.useState(false);
+  const [timer, setTimer] = React.useState(business.hasManager);
   const [key, setKey] = React.useState(1);
   const onTimerComplete = () => {
     const timeout = setTimeout(() => {
@@ -38,7 +38,7 @@ export const Business: React.FunctionComponent<Props> = ({ business }: Props) =>
         <span></span>
       </LeftSection>
       <RightSection>
-        <ArrowDiv>
+        <ArrowDiv animationDuration={business.timeTaken} activeAnimation={timer} loopAnimation={business.hasManager}>
           <p>{business.profit}</p>
           <span></span>
           <img src={arrowPng} alt="Business profit" />

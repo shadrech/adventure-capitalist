@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { ReactComponent as UnpurchasedBackground } from '../../assets/unpurchased_bg.svg';
 import moneyDivBg from '../../assets/price_bg.png';
 import durationDivBg from '../../assets/duration_bg.png';
@@ -51,7 +51,17 @@ export const RightSection = styled.section`
   width: 80%;
 `
 
-export const ArrowDiv = styled.div`
+const loader = keyframes`
+  0% { width: 0%; }
+  100% { width: 145%; }
+`
+
+interface ArrowDivProps {
+  animationDuration: number;
+  activeAnimation: boolean;
+  loopAnimation: boolean;
+}
+export const ArrowDiv = styled.div<ArrowDivProps>`
   position: relative;
   display: block;
   width: 100%;
@@ -70,7 +80,7 @@ export const ArrowDiv = styled.div`
     position: absolute;
     top: 1px;
     left: 1px;
-    width: 145%; // change for spinning effect 
+    width: 0%; // change for spinning effect 
     height: 50px;
     background: #959c73;
     clip-path: url(#arrowMask);
@@ -89,6 +99,11 @@ export const ArrowDiv = styled.div`
   &:hover {
     cursor: default;
   }
+  ${({ activeAnimation, animationDuration, loopAnimation }) => activeAnimation && css`
+    span {
+      animation: ${loader} ${animationDuration + 1}s ease-out ${loopAnimation && 'infinite'};
+    }
+  `}
 `
 
 export const BottomDiv = styled.div`
@@ -101,7 +116,7 @@ export const MoneyDiv = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   width: 170px;
-  height: 45px;
+  height: 25px;
   font-family: 'kalamregular';
   color: ${({ theme }) => theme.cream};
   -webkit-text-stroke: .3px ${({ theme }) => theme.darkBrown};
