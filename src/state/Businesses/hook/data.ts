@@ -3,9 +3,9 @@ const businesses = {
     id: 'lemon_joint',
     name: 'Lemon stand',
     price: 101,
-    timeTaken: 1,
-    quantityPurchased: 0,
-    hasManager: false,
+    timeTaken: 5,
+    quantityPurchased: 1,
+    hasManager: true,
     profit: 10
   },
   irish_times: {
@@ -13,7 +13,7 @@ const businesses = {
     name: 'The Irish Times Newspaper',
     price: 1051,
     timeTaken: 5,
-    quantityPurchased: 1,
+    quantityPurchased: 0,
     hasManager: true,
     profit: 105
   },

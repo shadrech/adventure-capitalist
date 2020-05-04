@@ -28,6 +28,9 @@ export const LeftSection = styled.section`
     font-family: 'montserratregular';
     font-size: 1.5em;
     color: ${({ theme }) => theme.cream};
+    &:hover {
+      cursor: pointer;
+    }
   }
   span {
     position: absolute;
@@ -35,6 +38,10 @@ export const LeftSection = styled.section`
     height: 70px;
     border-radius: 50%;
     background: ${({ theme }) => theme.mediumBrown};
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `
 
@@ -79,6 +86,9 @@ export const ArrowDiv = styled.div`
   svg {
     position: absolute;
   }
+  &:hover {
+    cursor: default;
+  }
 `
 
 export const BottomDiv = styled.div`
@@ -102,6 +112,9 @@ export const MoneyDiv = styled.div`
   p {
     margin: 0;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const DurationDiv = styled.div`
@@ -118,6 +131,9 @@ export const DurationDiv = styled.div`
   p {
     margin: 0;
     padding-top: 7px;
+  }
+  &:hover {
+    cursor: default;
   }
 `
 
@@ -145,6 +161,13 @@ export const UnpurchasedDiv = styled.div`
     font-size: 1em;
     margin: 0;
     z-index: 50;
+  }
+  .purchase {
+    position: absolute;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `
 
