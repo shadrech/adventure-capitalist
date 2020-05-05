@@ -14,7 +14,7 @@ export const GoldFloor = styled.img`
   z-index: 50;
 `
 
-export const Balance = styled.h1`
+export const BalanceH1 = styled.h1`
   margin: 0;
   font-family: 'kalambold';
   font-size: 4em;

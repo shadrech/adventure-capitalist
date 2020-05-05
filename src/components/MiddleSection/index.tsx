@@ -1,23 +1,18 @@
 import React from 'react';
-import { BusinessContext, BusinessDispatchContext } from '../../state/Businesses';
-import { BalanceProvider } from '../../state/Balance';
 import { Business } from '../Business';
 import { SectionWrapper } from './styles';
+import { useBusinessContext } from '../../state/Businesses/index';
 
 export const MiddleSection: React.FunctionComponent = () => {
-  const businesses = React.useContext(BusinessContext);
-  const businessDispatch = React.useContext(BusinessDispatchContext);
+  const businesses = useBusinessContext();
 
   return (
     <SectionWrapper>
-      <BalanceProvider>
         {Object.values(businesses).map(business =>
           <Business
             business={business}
-            dispatch={businessDispatch}
             key={business.id} />
         )}
-      </BalanceProvider>
     </SectionWrapper>
   );
 }

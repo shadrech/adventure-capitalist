@@ -3,7 +3,7 @@ const businesses = {
     id: 'lemon_joint',
     name: 'Lemon stand',
     price: 101,
-    timeTaken: 5,
+    timeTaken: 3,
     quantityPurchased: 1,
     hasManager: true,
     profit: 10
@@ -11,11 +11,11 @@ const businesses = {
   irish_times: {
     id: 'irish_times',
     name: 'The Irish Times Newspaper',
-    price: 1051,
+    price: 31,
     timeTaken: 5,
-    quantityPurchased: 0,
-    hasManager: true,
-    profit: 105
+    quantityPurchased: 1,
+    hasManager: false,
+    profit: 1105
   },
   car_wash: {
     id: 'car_wash',
@@ -24,7 +24,7 @@ const businesses = {
     timeTaken: 10,
     quantityPurchased: 0,
     hasManager: false,
-    profit: 1550
+    profit: 3550
   },
   shepherds_pie: {
     id: 'shepherds_pie',

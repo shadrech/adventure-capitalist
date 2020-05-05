@@ -5,21 +5,23 @@ const MULTIPLIER = 1.3;
 
 export type State = Record<string, BusinessData>
 type Payloads = {
-  BUY: { quantity: number };
-  INCREASE_PROFIT: { amount: number; multiply?: boolean; };
+  BUY: { id: string; quantity: number };
+  INCREASE_PROFIT: { id: string; amount: number; multiply?: boolean; };
 }
 
 export type Actions = ActionMap<Payloads>[keyof ActionMap<Payloads>];
 
 export const reducer = (state: State, action: Actions) => {
+  const { id } = action.payload;
+
   switch (action.type) {
     case 'BUY': {
-      const { profit, price, quantityPurchased } = state[action.id];
+      const { profit, price, quantityPurchased } = state[id];
       const qty = action.payload.quantity;
       return {
         ...state,
-        [action.id]: {
-          ...state[action.id],
+        [id]: {
+          ...state[id],
           price: price * (qty * MULTIPLIER),
           quantityPurchased: quantityPurchased + qty,
           profit: profit * (MULTIPLIER * qty)
@@ -27,12 +29,12 @@ export const reducer = (state: State, action: Actions) => {
       };
     }
     case 'INCREASE_PROFIT': {
-      const currentProfit = state[action.id].profit;
+      const currentProfit = state[id].profit;
       const profit = action.payload.multiply ? currentProfit * action.payload.amount : currentProfit + action.payload.amount;
       return {
         ...state,
-        [action.id]: {
-          ...state[action.id],
+        [id]: {
+          ...state[id],
           profit
         }
       }

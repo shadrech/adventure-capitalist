@@ -1,7 +1,7 @@
 import styled, { keyframes, css } from 'styled-components';
 import { ReactComponent as UnpurchasedBackground } from '../../assets/unpurchased_bg.svg';
-import moneyDivBg from '../../assets/price_bg.png';
 import durationDivBg from '../../assets/duration_bg.png';
+import { ReactComponent as BuyBG } from '../../assets/buy_bg.svg';
 
 export const PurchasedDiv = styled.div`
   position: relative;
@@ -10,8 +10,10 @@ export const PurchasedDiv = styled.div`
   height: 80px;
   margin: 0px 15px 15px;
 `
-
-export const LeftSection = styled.section`
+interface LeftSectionProps {
+  clickable: boolean;
+}
+export const LeftSection = styled.section<LeftSectionProps>`
   position: relative;
   width: 20%;
   text-align: center;
@@ -29,7 +31,7 @@ export const LeftSection = styled.section`
     font-size: 1.5em;
     color: ${({ theme }) => theme.cream};
     &:hover {
-      cursor: pointer;
+      cursor: ${({ clickable }) => clickable ? 'pointer' : 'default'};
     }
   }
   span {
@@ -40,7 +42,7 @@ export const LeftSection = styled.section`
     background: ${({ theme }) => theme.mediumBrown};
 
     &:hover {
-      cursor: pointer;
+      cursor: ${({ clickable }) => clickable ? 'pointer' : 'default'};
     }
   }
 `
@@ -80,7 +82,7 @@ export const ArrowDiv = styled.div<ArrowDivProps>`
     position: absolute;
     top: 1px;
     left: 1px;
-    width: 0%; // change for spinning effect 
+    width: 0%;
     height: 50px;
     background: #959c73;
     clip-path: url(#arrowMask);
@@ -101,7 +103,7 @@ export const ArrowDiv = styled.div<ArrowDivProps>`
   }
   ${({ activeAnimation, animationDuration, loopAnimation }) => activeAnimation && css`
     span {
-      animation: ${loader} ${animationDuration + 1}s ease-out ${loopAnimation && 'infinite'};
+      animation: ${loader} ${animationDuration}s ease-in ${loopAnimation && 'infinite'};
     }
   `}
 `
@@ -112,23 +114,46 @@ export const BottomDiv = styled.div`
 `
 
 export const MoneyDiv = styled.div`
-  background: url(${moneyDivBg});
   background-repeat: no-repeat;
   background-size: contain;
   width: 170px;
   height: 25px;
   font-family: 'kalamregular';
   color: ${({ theme }) => theme.cream};
-  -webkit-text-stroke: .3px ${({ theme }) => theme.darkBrown};
+  -webkit-text-stroke: .1px ${({ theme }) => theme.darkBrown};
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  position: relative;
 
   p {
     margin: 0;
+    z-index: 50;
+    cursor: inherit;
+  }
+`
+
+interface BuySVGProps {
+  purchaseable: number;
+}
+export const BuySVG = styled(BuyBG)<BuySVGProps>`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  path:nth-child(1) {
+    fill: ${({ purchaseable, theme }) => purchaseable ? '#E08848' : theme.gameSecondaryBgColor};
+  }
+  path:nth-child(2) {
+    fill: #C26927;
+  }
+  path:nth-child(3) {
+    fill: #4D4130;
   }
   &:hover {
-    cursor: pointer;
+    path:nth-child(1) {
+      cursor: ${({ purchaseable }) => purchaseable ? 'pointer' : 'default'};
+    }
   }
 `
 
@@ -142,6 +167,7 @@ export const DurationDiv = styled.div`
   color: ${({ theme }) => theme.cream};
   text-align: center;
   font-size: .8em;
+  padding-top: 10px;
 
   p {
     margin: 0;
