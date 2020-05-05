@@ -7,6 +7,7 @@ export type State = Record<string, BusinessData>
 type Payloads = {
   BUY: { id: string; quantity?: number };
   INCREASE_PROFIT: { id: string; amount: number; multiply?: boolean; };
+  ACQUIRE_MANAGER: { id: string; };
 }
 
 export type Actions = ActionMap<Payloads>[keyof ActionMap<Payloads>];
@@ -36,6 +37,15 @@ export const reducer = (state: State, action: Actions) => {
         [id]: {
           ...state[id],
           profit
+        }
+      }
+    }
+    case 'ACQUIRE_MANAGER': {
+      return {
+        ...state,
+        [action.payload.id]: {
+          ...state[action.payload.id],
+          hasManager: true
         }
       }
     }

@@ -58,6 +58,11 @@ export const GlobalStyles = createGlobalStyle`
     background: ${(props: any) => props.theme.bgColor};
     margin: 0;
     padding: 0;
+
+    #modal-root {
+      z-index: 10000;
+      position: relative;
+    }
   }
 `
 

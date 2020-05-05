@@ -5,15 +5,15 @@ const businesses = {
     price: 101,
     timeTaken: 3,
     quantityPurchased: 1,
-    hasManager: true,
-    profit: 10
+    hasManager: false,
+    profit: 30
   },
   irish_times: {
     id: 'irish_times',
     name: 'The Irish Times Newspaper',
     price: 31,
     timeTaken: 5,
-    quantityPurchased: 1,
+    quantityPurchased: 0,
     hasManager: false,
     profit: 1105
   },
@@ -28,7 +28,7 @@ const businesses = {
   },
   shepherds_pie: {
     id: 'shepherds_pie',
-    name: 'Shepherds Pic Inc',
+    name: 'Shepherds Pie Inc',
     price: 55100,
     timeTaken: 21,
     quantityPurchased: 0,

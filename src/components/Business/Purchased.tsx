@@ -20,6 +20,7 @@ const Component: React.FunctionComponent<Props> = ({ business }) => {
   const [timer, setTimer] = React.useState(business.hasManager);
   const [uniqueId, setUniqueId] = React.useState(1);
   const purchaseable = balance >= business.price ? 1 : 0;
+  const hasManager = business.hasManager || false;
   const onTimerComplete = () => {
     balanceDispatch({ type: 'INCREASE', payload: { amount: business.profit } });
 
@@ -38,6 +39,13 @@ const Component: React.FunctionComponent<Props> = ({ business }) => {
     businessDispatch({ type: 'BUY', payload: { id: business.id, quantity: 1 } });
     balanceDispatch({ type: 'DECREASE', payload: { amount: business.price } });
   }
+
+  React.useEffect(() => {
+    if (!timer && hasManager) {
+      setTimer(true)
+      setUniqueId(Math.random())
+    }
+  }, [hasManager, timer])
 
   return (
     <PurchasedDiv>
