@@ -1,5 +1,4 @@
 import { ActionMap } from '../../../helpers';
-// import { balanceCache } from './';
 
 type Payloads = {
   DECREASE: { amount: number };

@@ -1,10 +1,16 @@
 import React from 'react';
+import { appCache } from '../../../AppCache';
 import { reducer } from './reducer';
+import { Actions } from './reducer';
 
-const initialValue = 0;
+const initialValue = appCache.calculateEarningsSinceLogout();
 
 const useBalance = () => {
-  const [balance, dispatch] = React.useReducer(reducer, initialValue);
+  const [balance, originalDispatch] = React.useReducer(reducer, initialValue);
+  const dispatch: React.Dispatch<Actions> = (...args) => {
+    originalDispatch(...args);
+    appCache.setItem('BALANCE', balance);
+  }
 
   return { balance, dispatch };
 }

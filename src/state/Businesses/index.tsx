@@ -23,10 +23,10 @@ export const useBusinessDispatchContext = () => {
 }
 
 export const BusinessProvider: React.FunctionComponent = ({ children }) => {
-  const { state, dispatch } = useBusiness();
+  const { businesses, dispatch } = useBusiness();
 
   return (
-    <BusinessContext.Provider value={state}>
+    <BusinessContext.Provider value={businesses}>
       <BusinessDispatchContext.Provider value={dispatch}>
         {children}
       </BusinessDispatchContext.Provider>
