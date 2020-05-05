@@ -5,7 +5,7 @@ const MULTIPLIER = 1.3;
 
 export type State = Record<string, BusinessData>
 type Payloads = {
-  BUY: { id: string; quantity: number };
+  BUY: { id: string; quantity?: number };
   INCREASE_PROFIT: { id: string; amount: number; multiply?: boolean; };
 }
 
@@ -17,7 +17,7 @@ export const reducer = (state: State, action: Actions) => {
   switch (action.type) {
     case 'BUY': {
       const { profit, price, quantityPurchased } = state[id];
-      const qty = action.payload.quantity;
+      const qty = action.payload.quantity || 1;
       return {
         ...state,
         [id]: {

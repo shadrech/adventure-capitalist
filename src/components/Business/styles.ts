@@ -145,7 +145,7 @@ export const BuySVG = styled(BuyBG)<BuySVGProps>`
     fill: ${({ purchaseable, theme }) => purchaseable ? '#E08848' : theme.gameSecondaryBgColor};
   }
   path:nth-child(2) {
-    fill: #C26927;
+    fill: ${({ theme }) => theme.gameBgColor};
   }
   path:nth-child(3) {
     fill: #4D4130;
