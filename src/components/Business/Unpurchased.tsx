@@ -19,12 +19,13 @@ export const Unpurchased: React.FunctionComponent<Props> = ({ business }) => {
     businessDispatch({ type: 'BUY', payload: { id: business.id } });
     balanceDispatch({ type: 'DECREASE', payload: { amount: business.price } });
   }
+  const purchaseable = balance >= business.price;
 
   return (
-    <UnpurchasedDiv onClick={onPurchase}>
+    <UnpurchasedDiv onClick={purchaseable ? onPurchase : undefined}>
       <p>{business.name}</p>
       <p>{unpurchasedIntl.format(business.price)}</p>
-      {balance >= business.price ?
+      {purchaseable ?
         <PurchaseSVG className="purchase" />
         : <UnpurchasedSvg />
       }

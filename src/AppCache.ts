@@ -30,6 +30,8 @@ class AppCache {
       return prev + (units * curr.profit);
     }, 0);
 
+    console.log('Elapsed secs: ', elapsedSeconds);
+    console.log('Total Earnings: ', earnings);
     return earnings;
   }
 
