@@ -29,10 +29,12 @@ class AppCache {
       const units = elapsedSeconds / curr.timeTaken;
       return prev + (units * curr.profit);
     }, 0);
+    const balance = this.getItem<number>('BALANCE');
 
     console.log('Elapsed secs: ', elapsedSeconds);
     console.log('Total Earnings: ', earnings);
-    return earnings;
+    console.log('Balance: ', balance);
+    return balance + earnings;
   }
 
 }
