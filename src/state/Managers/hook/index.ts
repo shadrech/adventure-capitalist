@@ -1,17 +1,16 @@
-import React from 'react';
-import { reducer, Actions, State } from './reducer';
+import React, { useEffect } from 'react';
+import { reducer, State } from './reducer';
 import defaultData from './data';
 import { appCache } from '../../../AppCache';
 
 const initialValue = appCache.getItem<State>('MANAGERS') || defaultData;
 
 export default function() {
-  const [managers, originalDispatch] = React.useReducer(reducer, initialValue);
+  const [managers, dispatch] = React.useReducer(reducer, initialValue);
 
-  const dispatch: React.Dispatch<Actions> = (...args) => {
-    originalDispatch(...args);
+  useEffect(() => {
     appCache.setItem('MANAGERS', managers);
-  }
+  }, [managers])
   
   return { managers, dispatch };
 }

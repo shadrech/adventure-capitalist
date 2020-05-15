@@ -34,7 +34,7 @@ class AppCache {
     console.log('Elapsed secs: ', elapsedSeconds);
     console.log('Total Earnings: ', earnings);
     console.log('Balance: ', balance);
-    return balance + earnings;
+    return elapsedSeconds > 5 ? balance + earnings : balance;
   }
 
 }

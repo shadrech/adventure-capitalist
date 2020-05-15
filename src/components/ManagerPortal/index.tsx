@@ -27,9 +27,9 @@ export const ManagerPortal: React.FunctionComponent<Props> = ({ show, onClose })
 
   return (
     <Modal show={show}>
-      <CloseSpan onClick={onClose} />
       <BackgroundDiv>
         <section>
+          <CloseSpan onClick={onClose} />
           <h1>Managers</h1>
           <TitleSVG />
         </section>

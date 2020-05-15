@@ -138,8 +138,8 @@ export const CloseSpan = styled.span`
   width: 50px;
   height: 70px;
   border-radius: 50%;
-  top: calc(100vh - ${({ theme }) => theme.gameHeight}px * 1.05);
-  left: ${({ theme }) => theme.gameWidth}px;
+  top: -40px;
+  right: 25px;
   transform: rotate(150deg);
   z-index: 100;
 
