@@ -2,12 +2,12 @@
 <img height="150" src="./src/assets/logo@1.5x.png">
 </p>
 
-<p align="center"><b>This is a crack at creating the popular <a href="http://en.gameslol.net/adventure-capitalist-1086.html">Adventure Capitalist Game.</a></b></p>
+<p align="center"><b><a href="https://tatendachawanzwa.com/adventure-capitalist/index.html">Adventure Capitalist</a></b></p>
 
 ## Tech stack
 React, Hooks, Context, Typescript, react-countdown ...
 
-
+Visit [my site](https://tatendachawanzwa.com/adventure-capitalist/index.html) for a demo or
 In the project directory, you can run:
 
 ```bash
