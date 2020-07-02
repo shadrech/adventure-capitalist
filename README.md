@@ -7,6 +7,8 @@
 ## Tech stack
 React, Hooks, Context, Typescript, react-countdown ...
 
+Design/gameplay inspired by [original Adventure Capitalist Online Game](http://en.gameslol.net/adventure-capitalist-1086.html)
+
 Visit [my site](https://tatendachawanzwa.com/adventure-capitalist/index.html) for a demo or
 In the project directory, you can run:
 
