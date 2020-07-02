@@ -26,6 +26,7 @@ You will also see any lint errors in the console.
 ### TODOs
 
 A few things could be improved with more time
+ - Currently only supports purchasing managers, need to support Investors and Upgrades
  - Add tests using jest, react-testing-library/enzyme and cypress
  - Loader code uses css and animates the width of the arrow to create loading effect. Probably best to find a way to animate css `transform` property as thats more perfomant (also loader and timer go out of sync after awhile. Needs fixing... or maybe its a feature 🤔)
  - Display earnings in a more nicer way, than just logging them
